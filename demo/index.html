@@ -14,21 +14,19 @@
 
     <custom-style>
         <style is="custom-style" include="demo-pages-shared-styles">
-            .container {
+            .chat-container {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                margin: 5px 10px;
             }
 
-            cc-message {
-                margin: 10px;
-            }
-
-            cc-message[is-own-message] {
+            .chat-container cc-message[is-own-message] {
                 align-self: flex-end;
             }
 
+            cc-message {
+                margin: 5px;
+            }
         </style>
     </custom-style>
 </head>
@@ -37,19 +35,43 @@
     <h3>Basic cc-message demo</h3>
     <demo-snippet>
         <template>
-            <div class="container">
-                <cc-message author="Jan" timestamp="10:20 AM">
-                    <div style="height: 15px; width: 15px; background-color: red;" slot="mood"></div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, rerum?
-                </cc-message>
-                <cc-message author="Marc" is-own-message mood="happy" timestamp="10:20 AM">
+            <cc-message author="Marc" mood="Happy" timestamp="10:10 AM">
+                Lorem ipsum dolor sit amet.
+            </cc-message>
+        </template>
+    </demo-snippet>
+
+    <h3>Add the <code>is-own-message</code> attribute to indicate that this message is your own</h3>
+    <demo-snippet>
+        <template>
+            <cc-message author="Marc" mood="Happy" timestamp="10:10 AM" is-own-message>
+                Lorem ipsum dolor sit amet.
+            </cc-message>
+        </template>
+    </demo-snippet>
+
+    <h3>If the <code>receiver</code> attribute is set, the message is displayed as a private message</h3>
+    <demo-snippet>
+        <template>
+            <div class="chat-container">
+                <cc-message author="Jan" receiver="Marc" mood="Happy" timestamp="10:10 AM">
                     Lorem ipsum dolor sit amet.
                 </cc-message>
-
-                <cc-message author="Marc" receiver="Jan" is-own-message mood="happy" timestamp="10:20 AM">
+                <cc-message author="Marc" receiver="Jan" mood="Happy" timestamp="10:10 AM" is-own-message>
                     Lorem ipsum dolor sit amet.
                 </cc-message>
             </div>
+        </template>
+    </demo-snippet>
+
+    <h3>Use the <code>mood</code> slot to display a custom element as mood indicator</h3>
+    <demo-snippet>
+        <template>
+                <cc-message author="SomeGuy" mood="Happy" timestamp="10:10 AM">
+                    Lorem ipsum dolor sit amet.
+                    <div slot="mood">(ㆆ _ ㆆ)</div>
+                </cc-message>
+
         </template>
     </demo-snippet>
 </div>
