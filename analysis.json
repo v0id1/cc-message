@@ -1,0 +1,372 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "`cc-message`\nA chat message element",
+      "summary": "",
+      "path": "cc-message.html",
+      "properties": [
+        {
+          "name": "author",
+          "type": "string",
+          "description": "The author of the message",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 20
+            },
+            "end": {
+              "line": 77,
+              "column": 21
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "receiver",
+          "type": "string",
+          "description": "The receiver of a private message",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 20
+            },
+            "end": {
+              "line": 84,
+              "column": 21
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "mood",
+          "type": "string",
+          "description": "The mood",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 89,
+              "column": 20
+            },
+            "end": {
+              "line": 91,
+              "column": 21
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "timestamp",
+          "type": "string",
+          "description": "The timestamp",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 20
+            },
+            "end": {
+              "line": 98,
+              "column": 21
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          }
+        },
+        {
+          "name": "isOwnMessage",
+          "type": "boolean",
+          "description": "A flag to indicate whether or not this element is the authors message or not",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 103,
+              "column": 20
+            },
+            "end": {
+              "line": 107,
+              "column": 21
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "isWhisper",
+          "type": "boolean",
+          "description": "A flag that indicate whether or not this message is a private message",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 112,
+              "column": 20
+            },
+            "end": {
+              "line": 117,
+              "column": 21
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "_heading",
+          "type": "string",
+          "description": "The heading of the message",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 123,
+              "column": 20
+            },
+            "end": {
+              "line": 126,
+              "column": 21
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "readOnly": true
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "_computeIsWhisper",
+          "description": "Computes the value of the isWhisper property",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 136,
+              "column": 12
+            },
+            "end": {
+              "line": 138,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "receiver",
+              "description": "The receiver property"
+            }
+          ],
+          "return": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "_computeHeading",
+          "description": "Computes the value of the _heading property",
+          "privacy": "private",
+          "sourceRange": {
+            "start": {
+              "line": 149,
+              "column": 12
+            },
+            "end": {
+              "line": 159,
+              "column": 13
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "author",
+              "description": "The author property value"
+            },
+            {
+              "name": "receiver",
+              "description": "The receiver property value"
+            },
+            {
+              "name": "isWhisper",
+              "description": "The isWhisper property value"
+            },
+            {
+              "name": "isOwnMessage",
+              "description": "The isOwnMessage property value"
+            }
+          ],
+          "return": {
+            "type": "String"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [
+        {
+          "url": "demo/index.html",
+          "description": ""
+        }
+      ],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 64,
+          "column": 8
+        },
+        "end": {
+          "line": 160,
+          "column": 9
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "CcMessage",
+      "attributes": [
+        {
+          "name": "author",
+          "description": "The author of the message",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 20
+            },
+            "end": {
+              "line": 77,
+              "column": 21
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "receiver",
+          "description": "The receiver of a private message",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 20
+            },
+            "end": {
+              "line": 84,
+              "column": 21
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "mood",
+          "description": "The mood",
+          "sourceRange": {
+            "start": {
+              "line": 89,
+              "column": 20
+            },
+            "end": {
+              "line": 91,
+              "column": 21
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "timestamp",
+          "description": "The timestamp",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 20
+            },
+            "end": {
+              "line": 98,
+              "column": 21
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "is-own-message",
+          "description": "A flag to indicate whether or not this element is the authors message or not",
+          "sourceRange": {
+            "start": {
+              "line": 103,
+              "column": 20
+            },
+            "end": {
+              "line": 107,
+              "column": 21
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "is-whisper",
+          "description": "A flag that indicate whether or not this message is a private message",
+          "sourceRange": {
+            "start": {
+              "line": 112,
+              "column": 20
+            },
+            "end": {
+              "line": 117,
+              "column": 21
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [
+        {
+          "description": "",
+          "name": "",
+          "range": {
+            "file": "cc-message.html",
+            "start": {
+              "line": 44,
+              "column": 12
+            },
+            "end": {
+              "line": 44,
+              "column": 35
+            }
+          }
+        },
+        {
+          "description": "",
+          "name": "mood",
+          "range": {
+            "file": "cc-message.html",
+            "start": {
+              "line": 47,
+              "column": 12
+            },
+            "end": {
+              "line": 49,
+              "column": 19
+            }
+          }
+        }
+      ],
+      "tagname": "cc-message"
+    }
+  ]
+}

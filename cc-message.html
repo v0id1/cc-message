@@ -36,7 +36,6 @@
                 font-size: 12px;
                 font-weight: 200;
             }
-
         </style>
 
         <div id="header">
@@ -56,8 +55,9 @@
     <script>
         /**
          * `cc-message`
-         * A chat messsage element
+         * A chat message element
          *
+         * @extends {Polymer.Element}
          * @customElement
          * @polymer
          * @demo demo/index.html
@@ -69,28 +69,47 @@
 
             static get properties() {
                 return {
+                    /**
+                     * The author of the message
+                     * @required
+                     */
                     author: {
                         type: String,
                     },
 
+                    /**
+                     * The receiver of a private message
+                     */
                     receiver: {
                         type: String,
                     },
 
+                    /**
+                     * The mood
+                     */
                     mood: {
                         type: String
                     },
 
+                    /**
+                     * The timestamp
+                     */
                     timestamp: {
                         type: String
                     },
 
+                    /**
+                     * A flag to indicate whether or not this element is the authors message or not
+                     */
                     isOwnMessage: {
                         type: Boolean,
                         value: false,
                         reflectToAttribute: true
                     },
 
+                    /**
+                     * A flag that indicate whether or not this message is a private message
+                     */
                     isWhisper: {
                         type: Boolean,
                         value: false,
@@ -98,6 +117,10 @@
                         computed: "_computeIsWhisper(receiver)",
                     },
 
+                    /**
+                     * The heading of the message
+                     * @private
+                     */
                     _heading: {
                         type: String,
                         computed: "_computeHeading(author, receiver, isWhisper, isOwnMessage)"
@@ -105,10 +128,25 @@
                 };
             }
 
+            /**
+             * Computes the value of the isWhisper property
+             * @param receiver The receiver property
+             * @return {boolean}
+             * @private
+             */
             _computeIsWhisper(receiver) {
                 return Boolean(receiver);
             }
 
+            /**
+             * Computes the value of the _heading property
+             * @param author The author property value
+             * @param receiver The receiver property value
+             * @param isWhisper The isWhisper property value
+             * @param isOwnMessage The isOwnMessage property value
+             * @return {String}
+             * @private
+             */
             _computeHeading(author, receiver, isWhisper, isOwnMessage){
                 if(isWhisper) {
                     if(isOwnMessage) {

@@ -1,21 +1,21 @@
 # \<cc-message\>
 
-A chat messsage element
+A chat message element
 
-## Install the Polymer-CLI
+## Supported Attributes
+
+| Attribute         | Values           | Default Value |
+| -------------     | -------------    | ------------- |
+| author (required) | String           |               |
+| receiver          | String           |               |
+| mood              | String           |               |
+| timestamp         | String           |               |
+| is-own-message    | Boolean          | false         |
+
+## Viewing The Element
 
 First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
 
-## Viewing Your Element
-
 ```
-$ polymer serve
+$ polymer install && polymer serve -o
 ```
-
-## Running Tests
-
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
