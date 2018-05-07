@@ -1,0 +1,127 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="cc-message">
+    <template>
+        <style>
+            :host {
+                display: inline-block;
+                padding: 16px;
+
+                border-radius: 20px 20px 20px 0;
+                background-color: rgba(142, 198, 255, 0.72);
+            }
+
+            :host([is-own-message]) {
+                border-radius: 20px 20px 0 20px;
+                background-color: rgba(255, 194, 23, 0.72);
+            }
+
+            :host([is-whisper]) {
+                background-color: rgba(241, 127, 205, 0.72);
+            }
+
+            #header {
+                font-size: 1.15em;
+                font-weight: bold;
+            }
+
+            #content {
+                margin: 0.2em 0;
+            }
+
+            #footer {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-size: 12px;
+                font-weight: 200;
+            }
+
+        </style>
+
+        <div id="header">
+            [[_heading]]
+        </div>
+        <div id="content">
+            <slot id="slot"></slot>
+        </div>
+        <div id="footer">
+            <slot id="moodSlot" name="mood">
+                <span id="mood">[[mood]]</span>
+            </slot>
+            <span id="timestamp">[[timestamp]]</span>
+        </div>
+    </template>
+
+    <script>
+        /**
+         * `cc-message`
+         * A chat messsage element
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class CcMessage extends Polymer.Element {
+            static get is() {
+                return 'cc-message';
+            }
+
+            static get properties() {
+                return {
+                    author: {
+                        type: String,
+                    },
+
+                    receiver: {
+                        type: String,
+                    },
+
+                    mood: {
+                        type: String
+                    },
+
+                    timestamp: {
+                        type: String
+                    },
+
+                    isOwnMessage: {
+                        type: Boolean,
+                        value: false,
+                        reflectToAttribute: true
+                    },
+
+                    isWhisper: {
+                        type: Boolean,
+                        value: false,
+                        reflectToAttribute: true,
+                        computed: "_computeIsWhisper(receiver)",
+                    },
+
+                    _heading: {
+                        type: String,
+                        computed: "_computeHeading(author, receiver, isWhisper, isOwnMessage)"
+                    },
+                };
+            }
+
+            _computeIsWhisper(receiver) {
+                return Boolean(receiver);
+            }
+
+            _computeHeading(author, receiver, isWhisper, isOwnMessage){
+                if(isWhisper) {
+                    if(isOwnMessage) {
+                        return "To: " + receiver;
+                    } else {
+                        return "From: " + author;
+                    }
+                } else {
+                    return author;
+                }
+            }
+        }
+
+        window.customElements.define(CcMessage.is, CcMessage);
+    </script>
+</dom-module>

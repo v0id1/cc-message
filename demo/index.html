@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>cc-message demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../cc-message.html">
+
+    <custom-style>
+        <style is="custom-style" include="demo-pages-shared-styles">
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin: 5px 10px;
+            }
+
+            cc-message {
+                margin: 10px;
+            }
+
+            cc-message[is-own-message] {
+                align-self: flex-end;
+            }
+
+        </style>
+    </custom-style>
+</head>
+<body>
+<div class="vertical-section-container centered">
+    <h3>Basic cc-message demo</h3>
+    <demo-snippet>
+        <template>
+            <div class="container">
+                <cc-message author="Jan" timestamp="10:20 AM">
+                    <div style="height: 15px; width: 15px; background-color: red;" slot="mood"></div>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, rerum?
+                </cc-message>
+                <cc-message author="Marc" is-own-message mood="happy" timestamp="10:20 AM">
+                    Lorem ipsum dolor sit amet.
+                </cc-message>
+
+                <cc-message author="Marc" receiver="Jan" is-own-message mood="happy" timestamp="10:20 AM">
+                    Lorem ipsum dolor sit amet.
+                </cc-message>
+            </div>
+        </template>
+    </demo-snippet>
+</div>
+</body>
+</html>
