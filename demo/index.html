@@ -45,7 +45,10 @@
     <demo-snippet>
         <template>
             <cc-message author="Marc" mood="Happy" timestamp="10:10 AM" is-own-message>
-                Lorem ipsum dolor sit amet.
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dolore excepturi nostrum officia quam quibusdam repudiandae sunt ullam unde voluptatibus! Ad, quam, quisquam! Eveniet, molestias?</div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dolore excepturi nostrum officia quam quibusdam repudiandae sunt ullam unde voluptatibus! Ad, quam, quisquam! Eveniet, molestias?</div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dolore excepturi nostrum officia quam quibusdam repudiandae sunt ullam unde voluptatibus! Ad, quam, quisquam! Eveniet, molestias?</div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dolore excepturi nostrum officia quam quibusdam repudiandae sunt ullam unde voluptatibus! Ad, quam, quisquam! Eveniet, molestias?</div>
             </cc-message>
         </template>
     </demo-snippet>
@@ -71,6 +74,19 @@
                     Lorem ipsum dolor sit amet.
                     <div slot="mood">(ㆆ _ ㆆ)</div>
                 </cc-message>
+
+        </template>
+    </demo-snippet>
+
+
+
+    <h3>Use the <code>profilePicture</code> slot to display an image next to the message</h3>
+    <demo-snippet>
+        <template>
+            <cc-message author="SomeGuy" mood="Happy" timestamp="10:10 AM">
+                Lorem ipsum dolor sit amet.
+                <img slot="profilePicture" src="../res/img/Logo.png">
+            </cc-message>
 
         </template>
     </demo-snippet>
