@@ -12,6 +12,16 @@ A chat message element
 | timestamp         | String           |               |
 | is-own-message    | Boolean          | false         |
 
+
+## Supported Slots
+
+| Slot              | Children              | Description      |
+| -------------     | -------------    | ------------- |
+| default           | any              | The message content              |
+| profilePicture    | img-tag          | Displays a image next to the message               |
+| mood              | any              | Used to display a custom mood element              |
+
+
 ## Viewing The Element
 
 First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
