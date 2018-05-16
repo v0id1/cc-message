@@ -31,6 +31,8 @@
             }
 
             #profilePicture {
+                max-height: 64px;
+                max-width: 64px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -65,18 +67,17 @@
                 align-self: flex-end;
             }
 
-            ::slotted(*[slot="profilePicture"]) {
-                display: none;
-            }
+            /*::slotted([slot="profilePicture"]) {*/
+            /*display: none;*/
+            /*}*/
 
-            ::slotted(img[slot="profilePicture"]:first-of-type) {
+            ::slotted(img[slot="profilePicture"]) {
                 display: initial;
-                object-fit: scale-down;
-                max-height: 64px;
-                max-width: 64px;
+                object-fit: contain;
+                height: 64px;
+                width: 64px;
                 align-self: flex-start;
 
-                width: 64px;
                 padding-right: 10px;
             }
 
